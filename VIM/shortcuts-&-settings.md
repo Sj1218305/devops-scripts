@@ -1,9 +1,9 @@
-*NOTE: Before executing any shortcut, don't forget to Press `Esc` first.
+*NOTE: Before executing any shortcut, don't forget to Press `Esc` first*
 
-- Select all contents of file:
+### Select all contents of file:
   
-. Type `ggVG`
+```Type ggVG```
 
-- Save and Close file:
+### Save and Close file:
   
-. Type `wq!`
+```Type wq!```
