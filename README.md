@@ -1,9 +1,8 @@
 # devops-scripts
-Scripts that can help in day to day devops tasks
+Scripts that can help in day to day devops tasks. Don't forget to make the scripts executable 😛
 
-##AWS
-- Update Resourced Tags
+## AWS
+- Update Resource Tags
 ```bash
 ./update-tags.sh
 ```
-*Note*: Don't forget to make the script executable 😛
