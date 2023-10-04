@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# Prompt the user for input
+read -p "Enter the tag key: " key
+read -p "Enter the old tag value: " old_key_value
+read -p "Enter the new tag value: " new_key_value
+
+# Call AWS CLI to get resources based on user input
+aws resourcegroupstaggingapi get-resources --tag-filters "Key=$key,Values=$old_key_value" > resources.json
+
+# Read the JSON file into a variable
+resources_json=$(cat resources.json)
+
+# Extract resource ARNs from the JSON and iterate through them
+resource_arns=$(echo "$resources_json" | jq -r '.ResourceTagMappingList[].ResourceARN')
+
+# Initialize a count variable to keep track of the number of resources
+count=0
+
+# Iterate through each resource and update the 'Component' tag
+for arn in $resource_arns; do
+    # Update the 'Component' tag for each resource
+    echo "Updating tag for resource: $arn"
+    aws resourcegroupstaggingapi tag-resources --resource-arn-list "$arn" --tags "$key=$new_key_value"
+    count=$((count + 1))
+done
+
+# Display the total number of resources updated
+echo "Total number of resources updated: $count"
