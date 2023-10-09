@@ -2,8 +2,12 @@
 
 ### Select all contents of file:
   
-```Type ggVG```
+```:ggVG```
 
 ### Save and Close file:
   
-```Type wq!```
+```:wq!```
+
+### View files in Current Dir:
+  
+```:EXPLORE```
