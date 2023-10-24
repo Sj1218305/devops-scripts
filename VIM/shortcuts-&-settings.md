@@ -11,3 +11,6 @@
 ### View files in Current Dir:
   
 ```:EXPLORE```
+
+### Search and Replace all occurences of a character in the file
+```:%s/article/tutorial/g```
